@@ -1,0 +1,54 @@
+﻿<Window x:Class="_301270677_prathan__Lab01.ObjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_301270677_prathan__Lab01"
+        mc:Ignorable="d"
+        Title="ObjectWindow" Height="450" Width="800" Loaded="ObjectWindow_Loaded">
+    <Grid>
+        <StackPanel Margin="10">
+
+            <StackPanel Margin="10" HorizontalAlignment="Right">
+                <!-- Row 0 -->
+                <StackPanel Orientation = "Horizontal" >
+                    <Label Content="Bucket" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <ComboBox x:Name="bucketComboBox" Width="370" Height="46" Margin="0,10,0,0" SelectionChanged="BucketComboBox_SelectionChanged" />
+                </StackPanel>
+
+                <!-- Row 1 -->
+                <StackPanel Orientation = "Horizontal" >
+                    <Label Content="Object" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <TextBox x:Name="objectPathTextBox" Width="370" Height="46" HorizontalContentAlignment="Center" Margin="0,10,0,0" TextChanged="objectPathTextBox_TextChanged"/>
+                    <Button x:Name="browse_btn" Content="Browse" Width="200" Height="46" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" BorderBrush="Black" FontWeight="Bold" FontSize="16" Foreground="#FFF9E507" Margin="10,10,0,0" Click="BrowseButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Row 2 -->
+            <StackPanel Orientation = "Horizontal">
+                <!-- DataGrid for Object of the specific bucket -->
+
+                <!-- DataGrid for Object of the specific bucket -->
+                <DataGrid x:Name="objectDataGrid" AutoGenerateColumns="False" Width="560" Height="242" ItemsSource="{Binding objectCollection}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Object Name" Width="*" Binding="{Binding ObjectName}" />
+                        <DataGridTextColumn Header="Size" Width="*" Binding="{Binding Size}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Orientation="Vertical" >
+                    <!-- "Upload" button at the top -->
+                    <Button Content="Upload" x:Name="upload_btn" Width="200" Height="46" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" BorderBrush="Black" FontWeight="Bold" FontSize="16" Foreground="#FFF9E507" Margin="10,0,0,0" Click="Upload_btn_Click" IsEnabled="False"/>
+
+                    <!-- Spacer to push buttons to the bottom -->
+                    <TextBlock Height="150" />
+
+                    <!-- "Back to Main Window" button at the bottom -->
+                    <Button Content="Back to Main Window" x:Name="backToMainWindow_btn" Width="200" Height="46" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" BorderBrush="Black" FontWeight="Bold" FontSize="16" Foreground="#FFF9E507" Margin="10,0,0,0" Click="backToMainWindow_btn_Click"/>
+
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
